@@ -13,8 +13,7 @@ function Form(props) {
 
     const callSubmit = (e) => {
         e.preventDefault();
-        
-        const para = document.querySelector('#para');
+  
         const name = document.querySelector('#name').value;
         const email = document.querySelector('#email').value;
         const phNumber = document.querySelector('#phoneNumber').value;
@@ -49,7 +48,8 @@ function Form(props) {
             return;
            }
 let uName = email.split('@')[0];
-para.innerHTML = `Hello ${uName}`;
+uName = `Hello ${uName}`;
+window.alert(uName);
 
         
     }
@@ -82,7 +82,6 @@ para.innerHTML = `Hello ${uName}`;
 
             <button data-testid = 'submit' type='submit'>Submit</button>
             </form>
-            <p id="para"></p>
         </div>
     );
 }
