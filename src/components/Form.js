@@ -61,7 +61,7 @@ window.alert(uName);
             </label>
 
             <label >email
-            <input data-testid = 'email' id='email' type='email'/>
+            <input data-testid = 'email' id='email' type='text'/>
             </label>
 
             <label>Gender
