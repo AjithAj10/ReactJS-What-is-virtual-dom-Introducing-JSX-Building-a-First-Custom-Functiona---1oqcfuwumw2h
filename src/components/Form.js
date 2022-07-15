@@ -4,7 +4,7 @@ import {screen} from '@testing-library/react'
 function Form(props) {
 
     const obj = {
-        name:/\w/i,
+        name:/^\w+$/i,
         email:/^\w+@/,
         mobile:/^\d+$/,
         password:/\w{6}/,
