@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {screen} from '@testing-library/react'
 
 function Form(props) {
@@ -11,6 +11,8 @@ function Form(props) {
         // address:/\w{4}/
     }
 
+    const [msg,setMsg] = useState('');
+    
     const callSubmit = (e) => {
         e.preventDefault();
   
@@ -21,35 +23,36 @@ function Form(props) {
         const gender = document.querySelector('#gender').value;
        
   if(name == '' && email == '' || phNumber == '' || password == ''){
-        window.alert('All fields are mandatory');
+        setMsg('All fields are mandatory');
         return;
   }
 
        if(!obj.name.test(name)){
-        window.alert('Name is not alphanumeric');
+        // window.alert('Name is not alphanumeric');
+        setMsg('Name is not alphanumeric');
         return;
        }
        if(!obj.email.test(email)){
-        window.alert('Email must contain @');
+        setMsg('Email must contain @');
         return;
        }
            if(gender != 'male' && gender != 'female' && gender !='other' ){
-            window.alert('Please identify as male, female or others');
+            setMsg('Please identify as male, female or others');
             return;
            }
 
            if(!obj.mobile.test(phNumber)){
-            window.alert('Phone Number must contain only numbers');
+            setMsg('Phone Number must contain only numbers');
             return;
            }
 
            if(!obj.password.test(password)){
-            window.alert('Password must contain atleast 6 letters');
+            setMsg('Password must contain atleast 6 letters');
             return;
            }
 let uName = email.split('@')[0];
 uName = `Hello ${uName}`;
-window.alert(uName);
+setMsg(uName);
 
         
     }
@@ -82,6 +85,7 @@ window.alert(uName);
 
             <button data-testid = 'submit' type='submit'>Submit</button>
             </form>
+            <div>{msg}</div>
         </div>
     );
 }
